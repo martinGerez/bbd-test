@@ -1,3 +1,4 @@
+import { HttpRequestService } from './services/http-request/http-request.service';
 import { Component } from '@angular/core';
 
 import { Platform } from '@ionic/angular';
@@ -13,7 +14,8 @@ export class AppComponent {
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
-    private statusBar: StatusBar
+    private statusBar: StatusBar,
+    private httpRequestService: HttpRequestService
   ) {
     this.initializeApp();
   }
@@ -22,6 +24,13 @@ export class AppComponent {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
+      this.httpRequestService.perform();
     });
+  }
+}
+
+declare global {
+  interface Window {
+    plugins: any;
   }
 }
