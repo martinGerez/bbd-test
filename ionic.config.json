@@ -1,0 +1,7 @@
+{
+  "name": "bbd-test",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
